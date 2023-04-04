@@ -34,3 +34,6 @@ check:
 	make
 	make cleaner
 	make
+
+-include Project/Project.mk  #  Project integration.
+                             #  Not required for building and using.
