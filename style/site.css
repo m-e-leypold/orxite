@@ -1,0 +1,249 @@
+/*
+ * Orxite - A static site generator for org format source
+ * Copyright (C) 2023  M E Leypold
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ */
+
+/* * General layout and typography  ----------------------------------------- */
+
+body{
+    font-family: helvetica, arial, sans-serif;
+    margin-top: 3ex;
+    margin-bottom: 5ex;
+    margin-left:5ex;
+    margin-right:5ex;
+    max-width:7.67in;	    
+}
+
+p {
+    margin-top: 1ex;
+    margin-bottom: 0ex;
+}
+
+pre { font-size: 10pt;
+      margin-left: 3ex;
+    }
+
+#content {
+    line-height: 150%;
+    font-size: 11pt;
+    padding-top: 2ex;
+    margin-bottom: 0ex;
+    padding-bottom: 0ex;
+}
+
+ul {
+    list-style-type: square;
+}
+
+a {
+    color: black;
+    text-decoration-color: silver;
+    text-decoration-thickness: 1.5px;
+}
+
+/* * Site header  ----------------------------------------------------------- */
+
+#header {
+    background-color: darkblue;
+    color: silver;
+    line-height: 100%;
+    padding-top: 3ex;
+    padding-bottom: 2ex;
+    text-align: center;
+}
+
+#header a {
+    color: silver;
+    text-decoration: none;
+}
+
+#footer {
+    color: grey;
+    font-size: 10pt;
+    line-height: 120%;
+    margin-top: 2ex;
+}
+
+#footer a {
+    color: grey;
+    text-decoration: underline;
+}
+
+#printOrigin{
+    display:none;
+}
+
+/* * Site footer  ----------------------------------------------------------- */
+
+      
+#siteTitle {
+    text-align: center;
+    margin:0ex;
+    padding:0ex;
+    margin-bottom: 0.5ex;
+}
+
+#siteSubtitle {
+    margin-top: 2ex;
+    margin-bottom: 1ex;
+    text-align: center;
+}
+
+#siteMenu {
+    padding-top:1ex;
+    font-size: 10pt;
+}
+
+#tombstone {
+    color:darkblue;	  
+}
+
+#footer {
+    color: grey;
+    font-size: 10pt;
+    line-height: 120%;
+    margin-top: 2ex;
+}
+
+/* * Article List ----------------------------------------------------------- */
+
+.articleDate {
+    color:grey;
+}
+
+#articleList + div ~ div > h3 {
+    margin:0ex;
+    margin-top:2ex;
+    padding:0ex;
+}
+
+/* * Responsiveness --------------------------------------------------------- */
+
+@media only screen and (max-width: 60ex) {
+    #header {
+	/* background-color: green; */ /* DEBUGGING */ 
+    }
+
+    body{
+	margin-top: 0ex;
+	margin-bottom: 2ex;
+	margin-left: 0ex;
+	margin-right: 0ex;
+    }
+    
+    #content, #footer {
+	margin-left:2ex;
+	margin-right:2ex;
+    }
+    
+
+    #siteSubtitle {
+	display: none;
+    }
+
+    pre {
+        margin-left: 0em;
+	font-size: 9pt;
+	padding-left: 0.5ex;
+    }
+
+    ul, ol {
+        padding-left: 2ex;
+    }
+
+}
+
+/* * Printing --------------------------------------------------------- */
+
+@media print {
+    
+    a {
+	color: black;
+	text-decoration-color: black;
+	text-decoration-thickness: 1px;
+	text-decoration-style: dashed;
+    }
+
+    .articleDate {
+	color:black;
+    }
+
+    .articleLink a {
+	text-decoration: none;
+    }
+
+    
+    #header {
+	background-color: inherit;
+	color: black;
+	margin: 0ex;
+	padding: 0ex;
+	padding-top: 2ex;
+	border: solid black 1px;
+    }
+
+    #header a {
+	color: black;
+	text-decoration: none;
+    }
+
+    #siteTitle {
+	font-size: 120%;
+    }
+
+    #siteSubtitle {
+	font-size: 10pt;
+    }
+  
+    #content {
+	margin-top: 4ex;
+	padding-top: 0ex;
+    }
+    #siteMenu {
+	display: none;
+    }
+    
+    #printOrigin{
+	margin-top: 1ex;
+	font-size:  10pt;
+	text-align: right;
+	display: block;
+    }
+
+    #printOrigin a {
+	text-decoration: none;
+	color: blue;
+    }
+
+    pre {
+        background-color: inherit;
+	/* border: none; */
+    }
+
+    #footer {
+	color: black;
+    }
+
+    #footer a {
+	color: blue;
+	text-decoration : none;	
+    }
+    #tombstone {
+	color:black;
+    }
+}
+

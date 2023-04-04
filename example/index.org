@@ -1,0 +1,45 @@
+* Welcome to the Orxite example pages
+
+** Disclaimer
+
+The following pages are by no means complete nor systematic. The
+primary purpose of these pages currently is, to check how certain
+style elements come out, not to give a systeamtic introduction to
+orxite.
+
+** Mathematical notation
+
+- [[./sample/test1.org][./sample/test1]] --- Shows mathematical notation interspersed in
+  continous text. The mathematical notation is all courtesy of
+  org-mode and the rendering is done by a local copy of [[https://www.mathjax.org/][Mathjax]].
+
+** Aliquam
+
+Aliquam erat volutpat.  Nunc eleifend leo vitae magna.  In id erat non
+orci commodo lobortis.  Proin neque massa, cursus ut, gravida ut,
+lobortis eget, lacus.
+
+** Nullam
+
+Sed diam.  Praesent fermentum tempor tellus.
+Nullam tempus.  Mauris ac felis vel velit tristique imperdiet.  Donec
+at pede.  Etiam vel neque nec dui dignissim bibendum.  Vivamus id
+enim.  Phasellus neque orci, porta a, aliquet quis, semper a, massa.
+Phasellus purus.  Pellentesque tristique imperdiet tortor.  Nam
+euismod tellus id erat.
+
+* #                                                        :ARCHIVE:noexport:
+#+requires-page-db: t
+#+publish: t
+#+MACRO: ADATE @@html:, <span class="articleDate">@@$1@@html:</span>@@
+#+MACRO: MORE  ➡ [[$1][Read more]]
+#+MACRO: ARTICLE ** @@html:<span class="articleLink">@@[[$3][$2]]@@html:</span>@@{{{ADATE($1)}}}{{{NEWLINE}}}$4 {{{MORE($3)}}}
+#+MACRO: NEWLINE (eval (format "\n"))
+#+MACRO: ARTICLE_LIST_BEGIN @@html:<div class="articleList">@@
+#+MACRO: END_ARTICLE_LIST   @@html:</div>@@
+
+Note: Selectively styling the H3s above does not work (yet). Actually,
+I currently think the only way to do this, is to use a different
+content wrapper for index pages, then travers from that wrapper.
+
+I can use custom ID, though to get a handle on the h2 header and go from there.

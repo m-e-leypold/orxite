@@ -1,0 +1,58 @@
+* A Sample Org Mode document with Math and source code
+:PROPERTIES:
+:ID:       1998c059-a9fc-4f61-864c-aeebdd205ea1
+:END:
+
+** Lorem ipsum and some emphasis
+
+Pellentesque *dapibus suscipit* ligula.  Donec posuere augue in quam.
+Etiam vel tortor sodales /tellus ultricies/ commodo.  Suspendisse
+potenti.  Aenean in sem ac _leo mollis_ blandit.
+
+- Donec neque quam, dignissim in, mollis nec, sagittis eu, wisi.
+- Phasellus lacus.
+- Etiam laoreet quam sed arcu.
+
+Phasellus at dui in ligula mollis ultricies.  Integer placerat
+tristique nisl.  Praesent augue.  Fusce commodo.
+
+** Source code
+
+Source code is currently rendered black and white by Org Mode, as far
+as I know via htmlize. I like the minimalistic style, so this has (for
+me) no priroity to be changed. See =org-html-htmlize-output-type= for
+more information on the background.
+
+#+begin_src C
+  #include <stdio.h>
+  int main(){
+    printf("%s\n", "hello");
+  }
+#+end_src
+
+** Mathematics
+
+Formulas can be inline, like $a^2+b^2 = c^2$. Or \( a^2+b^2=
+c^2\). Nullam eu ante vel est convallis dignissim.  Fusce suscipit,
+wisi nec facilisis facilisis.
+
+So we get $$ c = \sqrt{ a^2+b^2 } $$ which cannot be lalala.
+
+TODO: display formulas
+
+So we get
+
+\[ c = \sqrt{ a^2+b^2 }
+\]
+
+And so it goes. Aliquam erat volutpat.  Fusce suscipit, wisi nec
+facilisis facilisis, est dui fermentum leo, quis tempor ligula erat
+quis odio.
+
+
+* #                                                        :noexport:ARCHIVE:
+#+Teaser: This is a sample document,
+#+Teaser: with two teaser lines.
+
+#+Tags: sample
+#+Tags: Common_Lisp Website
