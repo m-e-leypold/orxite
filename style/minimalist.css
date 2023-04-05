@@ -25,7 +25,7 @@ body{
     margin-bottom: 5ex;
     margin-left:5ex;
     margin-right:5ex;
-    max-width:7.67in;	    
+    max-width:7.67in;
 }
 
 p {
@@ -35,6 +35,7 @@ p {
 
 pre { font-size: 10pt;
       margin-left: 3ex;
+      margin-right: 0ex;
     }
 
 #content {
@@ -43,6 +44,8 @@ pre { font-size: 10pt;
     padding-top: 2ex;
     margin-bottom: 0ex;
     padding-bottom: 0ex;
+    text-align: justify;
+    hyphens: auto;
 }
 
 ul {
@@ -89,7 +92,7 @@ a {
 
 /* * Site footer  ----------------------------------------------------------- */
 
-      
+
 #siteTitle {
     text-align: center;
     margin:0ex;
@@ -109,7 +112,7 @@ a {
 }
 
 #tombstone {
-    color:darkblue;	  
+    color:darkblue;
 }
 
 #footer {
@@ -135,7 +138,7 @@ a {
 
 @media only screen and (max-width: 60ex) {
     #header {
-	/* background-color: green; */ /* DEBUGGING */ 
+	/* background-color: green; */ /* DEBUGGING */
     }
 
     body{
@@ -144,12 +147,12 @@ a {
 	margin-left: 0ex;
 	margin-right: 0ex;
     }
-    
+
     #content, #footer {
 	margin-left:2ex;
 	margin-right:2ex;
     }
-    
+
 
     #siteSubtitle {
 	display: none;
@@ -170,7 +173,7 @@ a {
 /* * Printing --------------------------------------------------------- */
 
 @media print {
-    
+
     a {
 	color: black;
 	text-decoration-color: black;
@@ -186,7 +189,7 @@ a {
 	text-decoration: none;
     }
 
-    
+
     #header {
 	background-color: inherit;
 	color: black;
@@ -208,7 +211,7 @@ a {
     #siteSubtitle {
 	font-size: 10pt;
     }
-  
+
     #content {
 	margin-top: 4ex;
 	padding-top: 0ex;
@@ -216,7 +219,7 @@ a {
     #siteMenu {
 	display: none;
     }
-    
+
     #printOrigin{
 	margin-top: 1ex;
 	font-size:  10pt;
@@ -240,10 +243,9 @@ a {
 
     #footer a {
 	color: blue;
-	text-decoration : none;	
+	text-decoration : none;
     }
     #tombstone {
 	color:black;
     }
 }
-
