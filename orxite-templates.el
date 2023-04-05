@@ -87,10 +87,10 @@
     ,(@page :permalink-path)))
 
 (defun orxite-simple-header ()
-  `(:div/header.header
-    ,(orxite-siteTitle)
-    ,(orxite-siteSubtitle)
-    ,(orxite-siteMenu :config)
+  `((:div/header.header
+     ,(orxite-siteTitle)
+     ,(orxite-siteSubtitle)
+     ,(orxite-siteMenu :config))
     ,(orxite-printOrigin)))
 
 (defun orxite-tombstone+links-footer ()
@@ -121,7 +121,7 @@
 
 (defun orxite-default-template (content)
   (orxite-outer-template
-   `( ,(@header :simple)     
+   `( ,@(@header :simple)     
       (:div/content.content
        ,content
        )
