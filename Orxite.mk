@@ -347,6 +347,15 @@ publish-permalinks: $(PERMALINK-FILES.published)
 
 @site:: $(PERMALINK-FILES.published)
 
+# * Site version --------------------------------------------------------------
+
+@site:: $(BUILD/BACKEND)/public/VERSION.txt
+
+.PHONY: @always
+
+$(BUILD/BACKEND)/stage/VERSION.txt: @always
+	echo '$(SITE-VERSION) '"$$(date -Is)" >"$@"
+
 # * Publication ---------------------------------------------------------------
 
 @site:: Public
@@ -370,7 +379,6 @@ archive:
 	test "main" = $$(git branch  | grep '^*' | awk '{print $$2}')
 	mkdir -p .archive
 	rsync -r --delete --exclude ".git" $(BUILD/BACKEND)/public/ .archive
-	echo '$(SITE-VERSION)' >.archive/VERSION 
 	cd .archive && git add .
 	cd .archive && { \
            if test $$(git status -s | wc -l) -ne 0; then  \
