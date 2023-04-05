@@ -4,13 +4,13 @@
 
 The following pages are by no means complete nor systematic. The
 primary purpose of these pages currently is, to check how certain
-style elements come out, not to give a systeamtic introduction to
-orxite.
+style elements come out, not to give a systematic introduction to
+Orxite.
 
 ** Mathematical notation
 
 - [[./sample/test1.org][./sample/test1]] --- Shows mathematical notation interspersed in
-  continous text. The mathematical notation is all courtesy of
+  continuous text. The mathematical notation is all courtesy of
   org-mode and the rendering is done by a local copy of [[https://www.mathjax.org/][Mathjax]].
 
 ** Aliquam
