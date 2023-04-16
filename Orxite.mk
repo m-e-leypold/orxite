@@ -382,8 +382,10 @@ publish: site archive
 	case "$(SITE-VERSION)" in *-DIRTY) false;; esac
 	test "main" = $$(git branch  | grep '^*' | awk '{print $$2}')
 	rsync -r --delete $(BUILD/BACKEND)/public/  $(DEPLOY-TO/PRODUCTION:%/=%)
+	git push
 
 # TODO: .archive should not be hard coded
+# TODO: Git pushing should be done by a hook rather than be hard coded
 
 archive:
 	case "$(SITE-VERSION)" in *-DIRTY) false;; esac
@@ -395,6 +397,7 @@ archive:
            if test $$(git status -s | wc -l) -ne 0; then  \
               git commit -m 'Archiving version $(SITE-VERSION) at '"$$(date -Is)"; \
            else true; fi; \
+           git push; \
         }
 
 
