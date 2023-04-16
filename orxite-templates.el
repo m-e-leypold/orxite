@@ -96,7 +96,7 @@
 (defun orxite-tombstone+links-footer ()
     `(:div/footer.footer
       (:span/tombstone.tombstone
-       "⯀")    
+       "⯀")
       " © "
       ,(@site :owner)
       " ○ "

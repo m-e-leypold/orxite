@@ -112,7 +112,11 @@ a {
 }
 
 #tombstone {
+    margin: 0px;
+    padding: 0px;
     color:black;
+    max-width:1px;
+    /* background-color: green; /* DEBUGGING */
 }
 
 #footer {
@@ -121,6 +125,31 @@ a {
     line-height: 120%;
     margin-top: 2ex;
 }
+
+#outline-container-fakeCommentSection {
+    font-size: 10pt;
+    margin-top: 2em;
+    margin-left: 3px;
+    border-left: 5px solid lightgrey;
+    padding-left: 1em;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    /* background-color: green; /* DEBUGGING */
+}
+
+#outline-container-fakeCommentSection p {
+    margin: 0px;
+    padding: 0px;
+    color: grey;
+    /* background-color: green; /* DEBUGGING */
+}
+
+#outline-container-fakeCommentSection > h2 {
+    font-size: 12pt;
+    color: grey;
+    /* background-color: green; /* DEBUGGING */
+}
+
 
 /* * Article List ----------------------------------------------------------- */
 
@@ -217,6 +246,9 @@ a {
 	padding-top: 0ex;
     }
     #siteMenu {
+	display: none;
+    }
+    #outline-container-fakeCommentSection {
 	display: none;
     }
 

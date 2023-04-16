@@ -20,6 +20,9 @@
 
 @all:: @site
 @site::
+
+.PHONY: @always
+
 clean::
 cleaner:: clean
 	rm -rf $(BUILD/BACKEND)
@@ -34,7 +37,7 @@ cleanest:: cleaner
 #
 #    These are parameters that can be overwritten or added to in Config.mk
 
-SITE-STATIC-FILES-PATTERNS ?= style/%
+SITE-STATIC-FILES-PATTERNS ?= style/% %.c %.lisp
 SITE-STATIC-DIRS-PATTERNS  ?= style/%
 
 # ** General  ------------------------------------------------------------------
@@ -60,15 +63,25 @@ SITE-CONFIG := $(patsubst ./%,%,$(BLOG:%=%/$(SITE-CONFIG)))
 BUILD         = .build
 BUILD/BACKEND = $(BUILD)/$(BACKEND)
 
-SITE-VERSION := $(shell cd $(BLOG) && $(SCRIPTS)/site-version)
-export SITE_VERSION := $(SITE-VERSION)
-
-ifneq ($(filter %-DIRTY,$(SITE-VERSION)),)
+CURRENT-SITE-VERSION := $(shell cd $(BLOG) && $(SCRIPTS)/site-version)
+ifneq ($(filter %-DIRTY,$(CURRENT-SITE-VERSION)),)
   DIRTY-VERSION = yes
 else
   override undefine DIRTY-VERSION
 endif
 
+export SITE_VERSION := $(CURRENT-SITE-VERSION)
+
+ifndef CLEAN-MODE
+  include $(BUILD)/SITE-VERSION.mk
+  ifneq ($(SITE-VERSION),$(CURRENT-SITE-VERSION))
+    $(BUILD)/SITE-VERSION: @always
+	mkdir -p "$(@D)"
+	echo >"$@" "$(CURRENT-SITE-VERSION)"
+    $(BUILD)/SITE-VERSION.mk: $(BUILD)/SITE-VERSION
+	echo >"$@" "SITE-VERSION = $$(cat "$<")"
+  endif
+endif
 
 ifdef MAKE_RESTARTS
 $(info )
@@ -350,8 +363,6 @@ publish-permalinks: $(PERMALINK-FILES.published)
 # * Site version --------------------------------------------------------------
 
 @site:: $(BUILD/BACKEND)/public/VERSION.txt
-
-.PHONY: @always
 
 $(BUILD/BACKEND)/stage/VERSION.txt: @always
 	echo '$(SITE-VERSION) '"$$(date -Is)" >"$@"
